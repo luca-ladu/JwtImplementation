@@ -1,13 +1,10 @@
 package it.luca.project.restaurant.auth;
 
-import it.luca.project.restaurant.entity.Authority;
-import it.luca.project.restaurant.entity.Role;
-import it.luca.project.restaurant.entity.User;
-import it.luca.project.restaurant.repository.RoleRepository;
+import it.luca.project.restaurant.entity.User.Authority;
+import it.luca.project.restaurant.entity.User.Role;
+import it.luca.project.restaurant.entity.User.User;
 import it.luca.project.restaurant.service.AuthorityService;
 import it.luca.project.restaurant.service.RoleService;
-import javassist.NotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,7 +12,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 
 public class ApplicationUser implements UserDetails {
 

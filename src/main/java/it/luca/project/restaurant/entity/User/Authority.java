@@ -1,10 +1,9 @@
-package it.luca.project.restaurant.entity;
+package it.luca.project.restaurant.entity.User;
 
 import lombok.Data;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Data

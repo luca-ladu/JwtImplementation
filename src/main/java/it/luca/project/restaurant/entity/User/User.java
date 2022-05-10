@@ -1,13 +1,13 @@
-package it.luca.project.restaurant.entity;
+package it.luca.project.restaurant.entity.User;
 
+import it.luca.project.restaurant.entity.Reservation;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Fetch;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Data
@@ -19,15 +19,26 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(mappedBy = "user")
-    private List<Role> roles;
+
 
     private String password;
     private String username;
+    private String name;
+    private String surname;
+    private String email;
+    private String phone;
     private boolean accountNonExpired;
     private boolean accountNonLocked;
     private boolean credentialsNonExpired;
     private boolean enabled;
+    private String verificationCode;
+    private String recoveryUuid;
+
+    @OneToMany(mappedBy = "user")
+    private List<Role> roles;
+
+    @OneToMany(mappedBy = "user")
+    private List<Reservation> reservations;
 
 
     @Override

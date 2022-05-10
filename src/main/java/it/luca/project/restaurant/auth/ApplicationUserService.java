@@ -1,6 +1,6 @@
 package it.luca.project.restaurant.auth;
 
-import it.luca.project.restaurant.entity.User;
+import it.luca.project.restaurant.entity.User.User;
 import it.luca.project.restaurant.repository.UserRepository;
 import it.luca.project.restaurant.service.AuthorityService;
 import it.luca.project.restaurant.service.RoleService;

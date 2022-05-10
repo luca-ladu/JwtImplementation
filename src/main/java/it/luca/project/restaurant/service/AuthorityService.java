@@ -1,7 +1,7 @@
 package it.luca.project.restaurant.service;
 
-import it.luca.project.restaurant.entity.Authority;
-import it.luca.project.restaurant.entity.User;
+import it.luca.project.restaurant.entity.User.Authority;
+import it.luca.project.restaurant.entity.User.User;
 import javassist.NotFoundException;
 
 import java.util.List;

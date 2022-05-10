@@ -1,7 +1,7 @@
 package it.luca.project.restaurant.service.impl;
 
-import it.luca.project.restaurant.entity.Role;
-import it.luca.project.restaurant.entity.User;
+import it.luca.project.restaurant.entity.User.Role;
+import it.luca.project.restaurant.entity.User.User;
 import it.luca.project.restaurant.repository.RoleRepository;
 import it.luca.project.restaurant.service.RoleService;
 import javassist.NotFoundException;
@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.Set;
 
 @Service
 public class RoleServiceImpl implements RoleService {
@@ -34,5 +32,16 @@ public class RoleServiceImpl implements RoleService {
     public void saveRole(Role role) {
 
         roleRepository.save(role);
+    }
+
+    @Override
+    public Role getUserBaseRole() {
+        try {
+            return roleRepository.findByName("ROLE_BASE_USER").get();
+
+        }catch (Exception e){
+
+        }
+        return null;
     }
 }

@@ -1,7 +1,7 @@
 package it.luca.project.restaurant.service.impl;
 
-import it.luca.project.restaurant.entity.Authority;
-import it.luca.project.restaurant.entity.User;
+import it.luca.project.restaurant.entity.User.Authority;
+import it.luca.project.restaurant.entity.User.User;
 import it.luca.project.restaurant.repository.AuthoritiesRepository;
 import it.luca.project.restaurant.service.AuthorityService;
 import javassist.NotFoundException;

@@ -1,20 +1,17 @@
 package it.luca.project.restaurant;
 
-import it.luca.project.restaurant.entity.Authority;
-import it.luca.project.restaurant.entity.Role;
-import it.luca.project.restaurant.entity.User;
+import it.luca.project.restaurant.entity.User.Authority;
+import it.luca.project.restaurant.entity.User.Role;
+import it.luca.project.restaurant.entity.User.User;
 import it.luca.project.restaurant.service.AuthorityService;
 import it.luca.project.restaurant.service.RoleService;
 import it.luca.project.restaurant.service.UserService;
-import org.checkerframework.checker.units.qual.A;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Arrays;
-import java.util.Set;
-import java.util.TreeSet;
 
 @SpringBootTest
 class RestaurantApplicationTests {
@@ -54,9 +51,11 @@ class RestaurantApplicationTests {
 
 		Authority canRead = new Authority();
 		Authority canWrite = new Authority();
+		Authority canBook = new Authority();
 
 		canRead.setName("can:read");
 		canWrite.setName("can:write");
+		canBook.setName("can:book");
 
 
 
@@ -69,7 +68,12 @@ class RestaurantApplicationTests {
 		roleadmin.setUser(useradmin);
 		roleadmin.setAuthorities(Arrays.asList(canRead,canWrite));
 
+		Role roleUserBase = new Role();
+		roleUserBase.setName("ROLE_BASE_USER");
+		roleUserBase.setAuthorities(Arrays.asList(canBook,canRead));
+
 		roleService.saveRole(roleadmin);
+		roleService.saveRole(roleUserBase);
 
 
 	}

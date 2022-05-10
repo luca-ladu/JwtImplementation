@@ -4,6 +4,7 @@ import it.luca.project.restaurant.auth.ApplicationUserService;
 import it.luca.project.restaurant.jtw.JwtConfig;
 import it.luca.project.restaurant.jtw.JwtTokenVerifier;
 import it.luca.project.restaurant.jtw.JwtUsernameAndPasswordAuthFilter;
+import it.luca.project.restaurant.util.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -45,6 +46,12 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
         http.
                 csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
+                .authorizeRequests().antMatchers(Constant.AUTH_PATH).permitAll()
+                .and()
+                .authorizeRequests().antMatchers(Constant.PUBLIC_PATH).permitAll()
+                .and()
+                .authorizeRequests().antMatchers(Constant.SWAGGER_PATHS).permitAll()
                 .and()
                 .addFilter(new JwtUsernameAndPasswordAuthFilter(authenticationManager(),jwtConfig,secretKey))
                 .addFilterAfter(new JwtTokenVerifier(jwtConfig,secretKey),JwtUsernameAndPasswordAuthFilter.class)
